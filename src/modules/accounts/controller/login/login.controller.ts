@@ -11,12 +11,12 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { LoginService } from '../../services/login/login.service';
 
-@Controller('login')
+@Controller('auth')
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
   @UseGuards(AuthGuard('local'))
-  @Post('/')
+  @Post('/login')
   @UsePipes(ValidationPipe)
   @HttpCode(HttpStatus.CREATED)
   async handle(@Req() req: any) {

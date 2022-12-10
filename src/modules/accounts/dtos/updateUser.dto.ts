@@ -4,4 +4,8 @@ export class UpdateUserDTO {
   email?: string;
 
   password?: string;
+
+  phone?: number
+
+  birth_date?: string
 }

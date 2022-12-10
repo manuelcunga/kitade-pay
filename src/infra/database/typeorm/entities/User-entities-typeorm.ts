@@ -27,15 +27,15 @@ export class UserTypeorm {
   phone: number;
 
   @Column()
-  birth_date: Date
+  birth_date: string
 
   @CreateDateColumn()
   createdAt: Date;
 
-  // @BeforeInsert()
-  // encryptPassword() {
-  //   this.password = hashSync(this.password, 12);
-  // }
+  @BeforeInsert()
+  encryptPassword() {
+    this.password = hashSync(this.password, 12);
+  }
 
   constructor() {
     if (!this.id) {

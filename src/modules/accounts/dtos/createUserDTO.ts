@@ -2,10 +2,6 @@ import { IsNotEmpty, IsEmail, IsNumber, IsDate, IsString, IsUUID } from 'class-v
 
 export class CreateUserDTO {
 
-  @IsString()
-  @IsUUID()
-  id?: string
-
   @IsNotEmpty()
   @IsString()
   name: string;
@@ -22,10 +18,7 @@ export class CreateUserDTO {
   phone: number
 
   @IsNotEmpty()
-  @IsDate()
-  birth_date: Date
-
-  @IsDate()
-  createdAt: Date
+  birth_date: string
   
+  createdAt: Date
 }

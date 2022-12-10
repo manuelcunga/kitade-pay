@@ -33,7 +33,7 @@ describe('UserService Test', () => {
       email: "manuel@gmail.com",
       phone: 929392329,
       password: "12345",
-      birth_date: data_nasc,
+      birth_date: "12/02/1000",
       createdAt: createdAT
     }
     await bankAccountService.execute(userBody);

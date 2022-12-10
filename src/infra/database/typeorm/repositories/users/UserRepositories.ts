@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { IUserRepository } from 'src/@core/domain/interface/IuserRespository';
-import { CreateUserDTO } from 'src/modules/accounts/dtos/createUserDTO';
 import { UpdateUserDTO } from 'src/modules/accounts/dtos/updateUser.dto';
 import { UserTypeorm } from '../../entities/User-entities-typeorm';
 import { Users } from 'src/@core/domain/entities/User';
@@ -10,7 +8,6 @@ import { Users } from 'src/@core/domain/entities/User';
 @Injectable()
 export class UserRepository implements IUserRepository {
   constructor(
-    @InjectRepository(UserTypeorm)
     private readonly ormRepository: Repository<UserTypeorm>,
   ) {}
 
@@ -21,10 +18,9 @@ export class UserRepository implements IUserRepository {
       phone: data.phone,
       birth_date: data.birth_date,
       password: data.password,
-      createdAt: data.createdAt
     });
     await this.ormRepository.save(user);
-    // return user;
+    //  return user;
   }
 
   public async findByEmail(email: string): Promise<UserTypeorm> {
@@ -33,12 +29,12 @@ export class UserRepository implements IUserRepository {
 
   public async findAllUsers(): Promise<UserTypeorm[]> {
     const users = await this.ormRepository.find({
-      select: ['id', 'name', 'email', 'createdAt'],
+      select: ['id', 'name', 'email'],
     });
     return users;
   }
 
-  public async update(id: string, data: UpdateUserDTO): Promise<UserTypeorm> {
+  public async update(id: string, data: UpdateUserDTO): Promise<Users> {
     const user = await this.ormRepository.preload({
       id,
       ...data,

@@ -29,16 +29,25 @@ import { IUserRepository } from 'src/@core/domain/interface/IuserRespository';
     FindAllUserServuce,
     UpdateUserService,
     LoginService,
-    UserRepository,
     LocalStrategy,
     JwtStrategy,
+
+    {
+      provide: UserRepository,
+      useFactory: (dataSource: DataSource) => {
+        return new UserRepository(
+          dataSource.getRepository(UserTypeorm),
+        );
+      },
+      inject: [getDataSourceToken()],
+    },
     {
       provide: CreateUserUseCases,
       useFactory: (repo: IUserRepository) => {
         return new CreateUserUseCases(repo);
       },
       inject: [UserRepository],
-    }
+    },
   ],
 
   imports: [

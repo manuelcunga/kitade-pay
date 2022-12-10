@@ -19,8 +19,7 @@ export class CreateUserService {
       phone: data.phone,
       password: data.password,
       birth_date: data.birth_date,
-      createdAt: data.createdAt,
-      id: data.id,
+      createdAt: data.createdAt
     });
   }
 }

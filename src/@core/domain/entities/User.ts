@@ -1,5 +1,4 @@
 import { v4 as uuid } from "uuid";
-import { hashSync } from "bcrypt";
 
 export class Users {
   id?: string;
@@ -7,8 +6,8 @@ export class Users {
   email: string;
   password: string;
   phone: number;
-  birth_date: Date;
-  createdAt: Date
+  birth_date: string;
+  createdAt: Date;
 
 
   constructor(
@@ -16,25 +15,18 @@ export class Users {
     email: string,
     phone: number,
     password: string,
-    birth_date: Date,
+    birth_date: string,
     createdAt: Date,
     id?: string
     
   ) {
     this.id = id ?? uuid();
-    this.name = name;
-    this.email = email;
-    this.phone = phone;
-    this.password = password
-    this.birth_date = birth_date;
+    this.name = name
+    this.email = email
+    this.phone = phone
+    this.birth_date = birth_date
     this.createdAt = createdAt
+    this.password  = password
   }
 
-  // changeName(name: string) {
-  //   this.name = name;
-  // }
-
-  // changePhone(phone: number) {
-  //   this.phone = phone;
-  // }
 }
