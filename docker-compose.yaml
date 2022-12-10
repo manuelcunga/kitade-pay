@@ -25,9 +25,9 @@ services:
       - 5432:5432
     tty: true
     environment:
-      - POSTGRES_USER=kitade_pay
-      - POSTGRES_PASSWORD=kitade_pay
-      - POSTGRES_DB=kitade_pay
+      - POSTGRES_USER=kitade
+      - POSTGRES_PASSWORD=kitade
+      - POSTGRES_DB=kitade
 
     volumes:
       - pgdata:/data/postgres
