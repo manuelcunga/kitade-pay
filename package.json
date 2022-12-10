@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "migration:create": "npm run -- migration:generate",
     "typeorm": "ts-node -r tsconfig-paths/register node_modules/typeorm/cli",
-    "migration:generate": "yarn  typeorm migration:generate -d src/infra/database/typeorm/data-source.ts  src/infra/database/typeorm/migrations/orders",
+    "migration:generate": "yarn  typeorm migration:generate -d src/infra/database/typeorm/data-source.ts  src/infra/database/typeorm/migrations/users",
     "migration:run": "yarn typeorm migration:run -d src/infra/database/typeorm/data-source.ts",
     "migration:revert": "yarn  typeorm migration:revert -d src/infra/database/typeorm/data-source.ts"
   },
