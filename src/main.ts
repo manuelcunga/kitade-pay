@@ -10,8 +10,8 @@ async function bootstrap() {
   });
 
   const options = new DocumentBuilder()
-    .setTitle('MARKETEASY STORE REST API')
-    .setDescription('API MARKETEASY STORE')
+    .setTitle('Kitade Pay Rest API')
+    .setDescription('API Kitadepay  digital wallet')
     .setVersion('1.0')
     .addTag('app')
     .build();
