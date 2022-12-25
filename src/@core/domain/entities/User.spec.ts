@@ -9,8 +9,7 @@ describe('User unit test', () => {
     expect(user.email).toBe("manuel@gmail.com")
     expect(user.phone).toBe(1234)
     expect(user.password).toBe("123456")
-    expect(user.birth_date).toBe(data)
-    expect(user.id).toBe("1234")
+    expect(user.birth_date).toBe("12/02/2000")
   });
   
 });
