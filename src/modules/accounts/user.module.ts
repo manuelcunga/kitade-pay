@@ -5,8 +5,6 @@ import { CreateUserService } from './services/create/createUser.service';
 import { UserRepository } from 'src/infra/database/typeorm/repositories/users/UserRepositories';
 import { FindAllUsersController } from './controller/findAll/findAllUsers.controller';
 import { FindAllUserServuce } from './services/findAll/findAllUser.service';
-import { UpdateUserController } from './controller/update/updateUser.controller';
-import { UpdateUserService } from './services/update/updateUser.service';
 import { LoginController } from './controller/login/login.controller';
 import { LoginService } from './services/login/login.service';
 import { JwtModule } from '@nestjs/jwt';
@@ -16,19 +14,21 @@ import { UserTypeorm } from 'src/infra/database/typeorm/entities/User-entities-t
 import { CreateUserUseCases } from 'src/@core/domain/usecases/create/create-user';
 import { DataSource } from 'typeorm';
 import { IUserRepository } from 'src/@core/domain/interface/IuserRespository';
+import { UpdateUserService } from './services/update/updateUser.service';
+import { UpdateUserController } from './controller/update/updateUser.controller';
 
 @Module({
   controllers: [
     CreateUserController,
-    UpdateUserController,
     FindAllUsersController,
+    UpdateUserController,
     LoginController,
   ],
   providers: [
     CreateUserService,
     FindAllUserServuce,
-    UpdateUserService,
     LoginService,
+    UpdateUserService,
     LocalStrategy,
     JwtStrategy,
 
