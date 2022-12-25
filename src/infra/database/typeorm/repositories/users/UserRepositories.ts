@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { IUserRepository } from 'src/@core/domain/interface/IuserRespository';
-import { UpdateUserDTO } from 'src/modules/accounts/dtos/updateUser.dto';
 import { UserTypeorm } from '../../entities/User-entities-typeorm';
 import { Users } from 'src/@core/domain/entities/User';
+import { UpdateUsersDTO } from 'src/modules/accounts/dtos/updateUser.dto';
 
 @Injectable()
 export class UserRepository implements IUserRepository {
@@ -29,12 +29,12 @@ export class UserRepository implements IUserRepository {
 
   public async findAllUsers(): Promise<UserTypeorm[]> {
     const users = await this.ormRepository.find({
-      select: ['id', 'name', 'email'],
+      select: ['id', 'name', 'email', 'phone', 'birth_date'],
     });
     return users;
   }
 
-  public async update(id: string, data: UpdateUserDTO): Promise<Users> {
+  public async update(id: string, data: UpdateUsersDTO): Promise<Users> {
     const user = await this.ormRepository.preload({
       id,
       ...data,
